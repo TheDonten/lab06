@@ -37,13 +37,13 @@ $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06
 $ mkdir tests
 $ wget https://github.com/philsquared/Catch/releases/download/v1.9.3/catch.hpp -O tests/catch.hpp
 $ cat > tests/main.cpp <<EOF
-#define CATCH_CONFIG_MAIN
+#define CATCH_CONFIG_MAIN //-предоставляет пользоваться CATCH. - писать нужно только в одном cpp файлу
 #include "catch.hpp"
 EOF
 ```
 
 ```ShellSession
-$ gsed -i '/option(BUILD_EXAMPLES "Build examples" OFF)/a\
+$ gsed -i '/option(BUILD_EXAMPLES "Build examples" OFF)/a\ \\-GNU sed имеет несколько новых особенностей, например замещающая правка файлов (замена первоначального файла результатом работы sed).\\
 option(BUILD_TESTS "Build tests" OFF)
 ' CMakeLists.txt
 $ cat >> CMakeLists.txt <<EOF
